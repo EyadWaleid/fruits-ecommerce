@@ -16,9 +16,27 @@ class SignupView extends StatelessWidget {
     return SafeArea(
       child: BlocProvider(
         create: (context) => SignupCubit(getIt<AuthRepo>()),
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          body: SignupBlocBody(),
+        child: BlocConsumer<SignupCubit, SignupState>(
+          listener: (context, state) {
+           if(state is SignupError){
+             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+               content: Text(state.errorMessage),
+             ));
+           }
+           if(state is SignupSucess){
+             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+               content: Text('تم التسجيل بنجاح '),
+             ));
+             Navigator.pop(context);
+
+           }
+          },
+          builder: (context, state) {
+            return Scaffold(
+              backgroundColor: Colors.white,
+              body: SignupBlocBody(),
+            );
+          },
         ),
       ),
     );

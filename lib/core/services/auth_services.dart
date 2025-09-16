@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_launcher_icons/android.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:untitled10/core/error/exceptions.dart';
 
@@ -50,24 +50,39 @@ class FirebaseAuthServices{
     }
 
     }
-    Future <User>loginWithGoogle()async{
+  Future <User>loginWithGoogle()async{
       try {
-        final GoogleSignInAccount? googleUser = await GoogleSignIn.instance.authenticate();
+        final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-        // Obtain the auth details from the request
-        final GoogleSignInAuthentication? googleAuth =  googleUser?.authentication;
+        final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
 
-        // Create a new credential
-        final credential = GoogleAuthProvider.credential(idToken: googleAuth?.idToken);
+        final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth?.accessToken,
+          idToken: googleAuth?.idToken,
+        );
 
-        // Once signed in, return the UserCredential
-        return  (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
+        return (await FirebaseAuth.instance.signInWithCredential(credential)).user!;
 
     }  on CustomExceptions catch (e){
         throw CustomExceptions(errorMessage: e.toString());
 
       }
       }
+  Future<User>loginWithFacebook()async{
+      final LoginResult loginResult = await FacebookAuth.instance.login();
+
+      // Create a credential from the access token
+      final OAuthCredential facebookAuthCredential =   FacebookAuthProvider.credential(loginResult.accessToken!.tokenString);
+
+      // Once signed in, return the UserCredential
+      return ( await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential)).user!;
+
+  }
+  Future delete()async{
+    await FirebaseAuth.instance.currentUser?.delete();
+    }
+
 
 
 

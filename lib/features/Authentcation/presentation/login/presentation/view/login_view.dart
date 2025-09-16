@@ -34,7 +34,10 @@ class LoginView extends StatelessWidget {
               if (state is LoginSuccess) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text("تم التسجيل بنجاح"),
-                ));}
+                ));
+                Navigator.pushReplacementNamed(context, '/home');
+
+              }
             },
             builder: (context, state) {
               return LoadingPage(isLoading: state is LoginLoading?true:false,child: LoginBody(),);

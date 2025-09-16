@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/constants/spaces.dart';
 import '../../../../../../core/utlis/app_colours.dart';
 import '../../../../../../core/utlis/generated/assets.dart';
 import '../../../../../../core/widget/login_button_social_media.dart';
+import '../../../cubit/login_cubit.dart';
 
 
 class LoginFooter extends StatelessWidget {
@@ -49,7 +51,7 @@ class LoginFooter extends StatelessWidget {
         ),
         SmallSpace(),
         LoginButtonSocialMedia(label: 'تسجيل الدخول بواسطة جوجل', image: Assets.pngSocial_Icons, function: () {
-          Navigator.pushNamed(context, '/login');
+          context.read<LoginCubit>().loginWithGoogle();
         },),
         VerySmallSpace(),
         LoginButtonSocialMedia(label: 'تسجيل الدخول بواسطة أبل', image: Assets.pngVector, function: () {
@@ -57,7 +59,7 @@ class LoginFooter extends StatelessWidget {
         },),
         VerySmallSpace(),
         LoginButtonSocialMedia(label: 'تسجيل الدخول بواسطة فيسبوك ', image: Assets.pngFacebook, function: () {
-          Navigator.pushNamed(context, '/login');
+          context.read<LoginCubit>().loginWithFacebook();
         },)
       ],
     );

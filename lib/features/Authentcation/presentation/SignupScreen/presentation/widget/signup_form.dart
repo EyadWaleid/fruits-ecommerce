@@ -130,9 +130,9 @@ class _SignupFormState extends State<SignupForm> {
                     .read<SignupCubit>()
                     .authRepo
                     .createWithEmailandPassword(
-                  emailController.text,
-                  passwordController.text,
-                  nameController.text,
+
+
+                 email:emailController.text, password:passwordController.text, name: nameController.text,
                 );
                 setState(() {
                   autovalidateMode=AutovalidateMode.always;

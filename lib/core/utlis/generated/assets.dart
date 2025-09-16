@@ -14,5 +14,8 @@ class Assets {
   static const String svgFreepikPlantInject63 = 'assets/images/svg/freepik--Plant--inject-63.svg';
   static const String svgVector = 'assets/images/svg/Vector.svg';
   static const String svgVector_1 = 'assets/images/svg/Vector (1).svg';
+  static const String svgMask_group = 'assets/images/svg/Mask group.svg';
+  static const String  notification= 'assets/images/svg/Frame 33686.svg';
+  static const String svgSearchNormal = 'assets/images/svg/search-normal.svg';
 
 }

@@ -10,10 +10,4 @@ final class LoginError extends LoginState {
   LoginError({required this.errorMessage});
 }
 final class LoginSuccess extends LoginState{}
-final class LoginGoogleLoading extends LoginState{}
-final class LoginGoogleError extends LoginState{
-  final String errorMessage;
-  LoginGoogleError({required this.errorMessage});
 
-}
-final class LoginGoogleSuccess extends LoginState{}
