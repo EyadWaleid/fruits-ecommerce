@@ -10,7 +10,7 @@ class AppRoute{
   Route? onGenarate(RouteSettings settings){
     switch(settings.name) {
       case('/'):
-        return MaterialPageRoute(builder: (_)=> const SplashView());
+        return MaterialPageRoute(builder: (_)=> const HomeView());
       case('/onboard'):
         return MaterialPageRoute(builder: (_)=> const OnboardView());
       case('/login'):

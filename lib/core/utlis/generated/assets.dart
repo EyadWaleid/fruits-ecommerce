@@ -17,5 +17,7 @@ class Assets {
   static const String svgMask_group = 'assets/images/svg/Mask group.svg';
   static const String  notification= 'assets/images/svg/Frame 33686.svg';
   static const String svgSearchNormal = 'assets/images/svg/search-normal.svg';
+  static const String svgEllipse224 = 'assets/images/svg/Ellipse 224.svg';
+  static const String fruits = 'assets/images/png/fruits.png';
 
 }

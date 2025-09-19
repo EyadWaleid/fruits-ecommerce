@@ -14,6 +14,13 @@ class TTextTheme{
 
         fontSize: 19.sp,
         fontWeight: FontWeight.w700),
+    labelLarge:TextStyle(
+      color:Colors.white,
+      fontSize: 19.sp,
+      fontFamily: 'Cairo',
+      fontWeight: FontWeight.bold,
+
+    ),
     labelSmall: TextStyle(
       color: Colors.white,
       fontSize: 16.sp,
