@@ -27,5 +27,5 @@ class Assets {
   static const String boldProducts = 'assets/images/svg/bold/products.svg';
   static const String boldShoppingCart = 'assets/images/svg/bold/shopping-cart.svg';
   static const String boldUser = 'assets/images/svg/bold/user.svg';
-
+  static const String svgNotification = 'assets/images/svg/notification.svg';
 }

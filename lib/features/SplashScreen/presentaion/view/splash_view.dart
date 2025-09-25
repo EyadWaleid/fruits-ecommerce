@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:untitled10/core/cache/shared_perferance.dart';
 import 'package:untitled10/core/constants/keys.dart';
 import 'package:untitled10/core/constants/spaces.dart';
+import 'package:untitled10/core/services/auth_services.dart';
 
 import '../../../../core/utlis/generated/assets.dart';
 import '../widget/splash_body.dart';
@@ -34,7 +35,16 @@ class _SplashViewState extends State<SplashView> {
     Future.delayed(Duration(seconds: 3),(){
 
       if(isOnboardSeen){
-        Navigator.pushReplacementNamed(context, '/login');
+        var isLogged=FirebaseAuthServices().isLoggedIn();
+        if(isLogged){
+          Navigator.pushNamed(context, '/home');
+
+        }
+        else{
+          Navigator.pushReplacementNamed(context, '/login');
+
+
+        }
       }
       else{
         Navigator.pushReplacementNamed(context, '/onboard');

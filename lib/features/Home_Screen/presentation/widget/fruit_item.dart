@@ -51,9 +51,9 @@ class FruitItem extends StatelessWidget {
                   textAlign: TextAlign.right,
                 ),
                 trailing:CircleAvatar(
-                  radius: 20.sp,
+                  radius: 18.sp,
                   backgroundColor: AppColours.primaryColour,
-                  child: FittedBox(child: IconButton(onPressed: (){}, icon: Icon(Icons.add),color: Colors.white,iconSize:20.sp,)),
+                  child: FittedBox(child: IconButton(onPressed: (){}, icon: Icon(Icons.add),color: Colors.white,iconSize:25.sp,)),
                 ),
               )
             ],

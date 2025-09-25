@@ -39,7 +39,8 @@ class CacheHelper {
   }
 
   // Method to get a String
-  String? getString({required String key}) {
+  static String? getString({required String key}) {
+
     return _sharedPreferences.getString(key);
   }
 

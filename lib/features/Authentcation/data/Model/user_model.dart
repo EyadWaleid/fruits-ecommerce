@@ -19,4 +19,14 @@ class UserModel extends UserEntity {
       name: getfromFirebase['name'],
     );
   }
-}
+  factory UserModel.fromEntity(UserEntity user){
+    return UserModel(id: user.id, email: user.email, name: user.name);
+  }
+  toMap(){
+    return {
+      'uid':id,
+      'email':email,
+      'name':name
+    };
+  }
+  }

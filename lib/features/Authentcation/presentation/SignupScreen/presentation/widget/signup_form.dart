@@ -128,12 +128,7 @@ class _SignupFormState extends State<SignupForm> {
               if(formkey.currentState!.validate()) {
                 context
                     .read<SignupCubit>()
-                    .authRepo
-                    .createWithEmailandPassword(
-
-
-                 email:emailController.text, password:passwordController.text, name: nameController.text,
-                );
+                    .signup(emailController.text, passwordController.text,nameController.text);
                 setState(() {
                   autovalidateMode=AutovalidateMode.always;
 

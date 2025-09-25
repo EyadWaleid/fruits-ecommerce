@@ -14,7 +14,10 @@ class SignupBlocBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
-        if(state is SignupSucess){}
+        if(state is SignupSucess){
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Sucessfully saved')));
+          Navigator.pushReplacementNamed(context, '/login');
+        }
         else if (state is SignupError) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage)));
         }
