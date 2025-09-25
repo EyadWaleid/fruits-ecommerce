@@ -12,4 +12,5 @@ class AppColours{
   static Color grey400=const Color(0xFF949D9E);
   static Color divederColour=const Color(0xfedddfdf);
   static Color primaryOrange=const Color(0xffF4A91F);
+  static Color lightOrange=const Color(0xffF8C76D);
 }

@@ -32,17 +32,18 @@ class FruitItem extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: ' الكيلو',
-                        style: theme.bodySmall!.copyWith(color: AppColours.secoundaryColour),
+                        text: '20ج ',
+                        style:theme.bodySmall!.copyWith(color: AppColours.primaryOrange),
                       ),
 
                       TextSpan(
                         text: '/',
-                        style:theme.bodySmall!.copyWith(color: AppColours.secoundaryColour),
+                        style:theme.bodySmall!.copyWith(color: AppColours.primaryOrange),
                       ),
+
                       TextSpan(
-                        text: '20ج ',
-                        style:theme.bodySmall!.copyWith(color:Colors.orange),
+                        text: ' الكيلو',
+                        style: theme.bodySmall!.copyWith(color: AppColours.lightOrange),
                       ),
 
                     ],

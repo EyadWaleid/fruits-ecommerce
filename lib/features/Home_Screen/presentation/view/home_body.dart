@@ -29,15 +29,6 @@ class HomeBody extends StatelessWidget {
                   SmallSpace(),
                   BestSellingHeader(),
                   SmallSpace(),
-
-
-
-
-
-
-
-
-
                 ],
               ),
             ),

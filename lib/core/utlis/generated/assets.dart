@@ -19,5 +19,13 @@ class Assets {
   static const String svgSearchNormal = 'assets/images/svg/search-normal.svg';
   static const String svgEllipse224 = 'assets/images/svg/Ellipse 224.svg';
   static const String fruits = 'assets/images/png/fruits.png';
+  static const String outlineHome = 'assets/images/svg/outline/home.svg';
+  static const String outlineProducts = 'assets/images/svg/outline/products.svg';
+  static const String outlineShoppingCart = 'assets/images/svg/outline/shopping-cart.svg';
+  static const String outlineUser = 'assets/images/svg/outline/user.svg';
+  static const String boldHome = 'assets/images/svg/bold/home.svg';
+  static const String boldProducts = 'assets/images/svg/bold/products.svg';
+  static const String boldShoppingCart = 'assets/images/svg/bold/shopping-cart.svg';
+  static const String boldUser = 'assets/images/svg/bold/user.svg';
 
 }
