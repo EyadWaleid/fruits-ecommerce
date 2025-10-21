@@ -3,14 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:untitled10/core/utlis/app_colours.dart';
 
-import '../../../domain/entites/bottom_navigator_item.dart';
+import '../../../data/domain/entites/bottom_navigator_item.dart';
 import 'active_item.dart';
 import 'inactive_item,.dart';
 
-class CustomeNavigationBar extends StatelessWidget {
-  CustomeNavigationBar({super.key});
+class CustomeNavigationBar extends StatefulWidget {
+  CustomeNavigationBar({super.key,required this.onItemTapped});
 
-  ValueNotifier<int> screenIndex = ValueNotifier(0);
+  final ValueChanged<int> onItemTapped;
+
+  @override
+  State<CustomeNavigationBar> createState() => _CustomeNavigationBarState();
+}
+
+class _CustomeNavigationBarState extends State<CustomeNavigationBar> {
+ int? screenIndex=0 ;
 
   @override
   Widget build(BuildContext context) {
@@ -38,18 +45,20 @@ class CustomeNavigationBar extends StatelessWidget {
         children: bottomNavigatoritem.asMap().entries.map((e) {
           var index = e.key;
           var item = e.value;
-          return ValueListenableBuilder(
-            valueListenable: screenIndex,
-            builder: (context, value, child) => Expanded(
-              flex: screenIndex.value==index?3:2,
-              child: GestureDetector(
-                onTap: () {
-                  screenIndex.value=index;
-                },
-                child: NavigationBarItem(
-                  isSelected: screenIndex.value == index,
-                  bottomNavigatorEntity: item,
-                ),
+          return Expanded(
+            flex: screenIndex==index?3:2,
+            child: GestureDetector(
+              onTap: () {
+                widget.onItemTapped(index);
+                print(index);
+
+                screenIndex=index;
+setState(() {
+
+});              },
+              child: NavigationBarItem(
+                isSelected: screenIndex== index,
+                bottomNavigatorEntity: item,
               ),
             ),
           );

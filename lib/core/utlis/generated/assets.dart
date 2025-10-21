@@ -28,4 +28,6 @@ class Assets {
   static const String boldShoppingCart = 'assets/images/svg/bold/shopping-cart.svg';
   static const String boldUser = 'assets/images/svg/bold/user.svg';
   static const String svgNotification = 'assets/images/svg/notification.svg';
+  static const String pngNetworkError = 'assets/images/png/network-error (1).png';
+
 }

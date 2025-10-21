@@ -1,4 +1,4 @@
-import '../../../../core/utlis/generated/assets.dart';
+import '../../../../../core/utlis/generated/assets.dart';
 
 class BottomNavigatorEntity {
   BottomNavigatorEntity({

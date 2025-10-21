@@ -53,7 +53,7 @@ class AuhtRepImp extends AuthRepo{
     on CustomExceptions catch(e){
       return left(ServerFailure(message: e.toString()));
 
-    };
+    }
 
   }
 

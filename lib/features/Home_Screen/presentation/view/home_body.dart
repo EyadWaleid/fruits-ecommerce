@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:untitled10/core/constants/spaces.dart';
-import 'package:untitled10/features/Home_Screen/presentation/widget/best_selling_header.dart';
 import 'package:untitled10/features/Home_Screen/presentation/widget/custome_search_home.dart';
-import 'package:untitled10/features/Home_Screen/presentation/widget/feature_item.dart';
 import 'package:untitled10/features/Home_Screen/presentation/widget/featured_list.dart';
 import 'package:untitled10/features/Home_Screen/presentation/widget/home_app_bar.dart';
+import '../../../../core/cubit/product/product_cubit.dart';
+import '../widget/best_selling/best_selling_body.dart';
+import '../widget/best_selling/best_selling_header.dart';
+import '../widget/best_selling/cubit_best_selling_body.dart';
 
-import '../widget/best_selling_body.dart';
-
-class HomeBody extends StatelessWidget {
+class HomeBody extends StatefulWidget {
   const HomeBody({super.key});
 
+  @override
+  State<HomeBody> createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends State<HomeBody> {
+  @override
+  void initState() {
+    context.read<ProductCubit>().getBestSellingProducts();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,14 +36,14 @@ class HomeBody extends StatelessWidget {
                   SmallSpace(),
                   CustomeSearchHome(searchController: TextEditingController()),
                   SmallSpace(),
-                 FeaturedList(),
+                  FeaturedList(),
                   SmallSpace(),
-                  BestSellingHeader(),
+                  CustomeHeader(header: 'الأكثر مبيعًا',),
                   SmallSpace(),
                 ],
               ),
-            ),
-            BestSellingBody()
+           ),
+            CubitBestSellingBody(),
           ],
         ),
       ),

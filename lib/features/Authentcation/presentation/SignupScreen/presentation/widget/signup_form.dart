@@ -130,6 +130,7 @@ class _SignupFormState extends State<SignupForm> {
                     .read<SignupCubit>()
                     .signup(emailController.text, passwordController.text,nameController.text);
                 setState(() {
+                  
                   autovalidateMode=AutovalidateMode.always;
 
                 });

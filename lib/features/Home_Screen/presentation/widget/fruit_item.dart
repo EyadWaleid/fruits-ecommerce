@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:untitled10/core/entity/product_data_entity.dart';
 import 'package:untitled10/core/utlis/app_colours.dart';
 
+import '../cubit/cart_cubit.dart';
+
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
+  const FruitItem({super.key,required this.product});
+  final ProductDataEntity product;
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +30,9 @@ class FruitItem extends StatelessWidget {
               child: Column(
             children: [
               SizedBox(height: 20,),
-             SizedBox(width:114.sp,height:105.sp,child:Image.asset('assets/images/png/pineapple-cuate 1.png',)),
+             SizedBox(width:114.sp,height:105.sp,child:Image.network(product.productImage??" ")),
               ListTile(
-                title: Text('اناناس',style: theme.bodySmall,),
+                title: Text(product.productName,style: theme.bodySmall,),
                 subtitle: Text.rich(
                   TextSpan(
                     children: [
@@ -53,7 +58,10 @@ class FruitItem extends StatelessWidget {
                 trailing:CircleAvatar(
                   radius: 18.sp,
                   backgroundColor: AppColours.primaryColour,
-                  child: FittedBox(child: IconButton(onPressed: (){}, icon: Icon(Icons.add),color: Colors.white,iconSize:25.sp,)),
+                  child: FittedBox(child: IconButton(onPressed: (){
+                    context.read<CartCubit>().addProduct(product);
+
+                  }, icon: Icon(Icons.add),color: Colors.white,iconSize:25.sp,)),
                 ),
               )
             ],
